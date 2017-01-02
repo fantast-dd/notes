@@ -107,4 +107,19 @@ ICMP报文的格式如图6-2所示。所有报文的前四个字节都是一样�
 ##### 引言
 UDP是一个简单的面向数据报的传输层协议：进程的每个输出操作都正好产生一个UDP数据报，并组装成一份待发送的IP数据报。
 
-UDP数据报
+UDP数据报封装成一份数据报的格式如图11-1所示。
+![图11-1](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-11/11-1.png)
+<center>图11-1 UDP封装</center>
+
+UDP不提供可靠性：它把应用程序传给IP层的数据发送出去，但是并不保证它们能到达目的地。
+
+应用程序必须关心IP数据报的长度。如果它超过网络的MTU，那么就要对IP数据报进行分片。
+
+##### UDP首部
+UDP首部的各字段如图11-2所示。
+![图11-2](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-11/11-2.png)
+<center>图11-2 UDP首部</center>
+
+16位UDP长度：UDP首部和UDP数据的字节长度。该字段的最小值为8字节。
+
+##### UDP检验和
