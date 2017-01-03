@@ -27,10 +27,13 @@
 传输层 | TCP段（TCP segment）/ UDP数据报（UDP datagram）
 网络层 | IP数据报（IP datagram）
 链路层 | 帧（Frame）
+
 ![图1-7](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-01/1-7.png)
 <center>图1-7 数据进入协议栈时的封装过程</center>
+
 ##### 分用
 当目的主机收到一个以太网数据帧时，数据就开始从协议栈中由底向上升，同时去掉各层协议加上的报文首部。每层协议盒都要去检查报文首部中的协议标识，以确定接受数据的上层协议。这个过程称作分用（Demultiplexing），图1-8显示了该过程是如何发生的。
+
 ![图1-8](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-01/1-8.png)
 <center>图1-8 以太网数据帧的分用过程</center>
 
@@ -39,10 +42,14 @@
 #### 第2章 链路层
 ##### 以太网封装和IEEE 802封装（如图2-1所示）
 ![图2-1](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-02/2-1.jpeg)
+
 CRC（Cyclic Redundancy Check）：用户帧内后续字节差错的循环冗余码检验（检验和）
+
 最小长度：802.3标准定义的帧和以太网的帧都有最小长度的要求。802.3规定数据部分必须至少为38字节，而对于以太网，则要求至少46字节。为了保证这一点，必须在不足的空间插入填充（pad）字节。
+
 ##### 最大传输单元MTU
 以太网：1500字节，802.3：1492字节
+
 ##### 路径MTU
 两台通信主机路径中的最小MTU
 
@@ -58,6 +65,7 @@ IP是TCP/IP协议族中最为核心的协议。所有的TCP，UDP，ICMP及IGMP�
 
 ##### IP首部
 IP数据报的格式如图3-1所示。普通的IP首部长为20个字节，除非含有特殊字段。
+
 ![图3-1](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-03/3-1.png)
 <center>图3-1 IP数据报格式及首部中的各字段</center>
 
@@ -94,10 +102,12 @@ IP数据报的格式如图3-1所示。普通的IP首部长为20个字节，除�
 #### 第6章 ICMP：Internet控制报文协议
 ##### 引言
 ICMP报文是在IP数据报内部被传输的，如图6-1所示。
+
 ![图6-2](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-06/6-1.png)
 <center>图6-1 ICMP封装在IP数据报内部</center>
 
 ICMP报文的格式如图6-2所示。所有报文的前四个字节都是一样的，但是剩下的其他字节则互不相同。
+
 ![图6-2](https://raw.githubusercontent.com/fantast-dd/notes/master/TCP_IP/chapter-06/6-2.png)
 <center>图6-2 ICMP报文</center>
 
